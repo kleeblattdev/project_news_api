@@ -1,10 +1,12 @@
+let search = document.querySelector('#search');
+let country = document.querySelector('#country');
 
+console.log(search, country);
 
-fetch('https://newsapi.org/v2/top-headlines?country=de&apiKey=2731200c9f6d4b85a5c4165c5d639e92')
+fetch(`https://newsapi.org/v2/top-headlines?country=de&apiKey=2731200c9f6d4b85a5c4165c5d639e92`)
 
 .then(response => response.json())
 .then((data) => {
-    console.log(data)
 
     data.articles.forEach((article) =>{ 
 
@@ -36,7 +38,5 @@ fetch('https://newsapi.org/v2/top-headlines?country=de&apiKey=2731200c9f6d4b85a5
 
         document.querySelector('section').appendChild(newsArticle);
     })
-
-
 
 })

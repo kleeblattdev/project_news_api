@@ -33,10 +33,21 @@ p{
 
 /* Header Style */
 header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 1rem;
     color: #fffbcf;
     background-color: #000103;
 }
+
+input[type="text"]{
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: none;
+    margin: 0.8rem;
+}
+
 
 /* Main Style */
 
