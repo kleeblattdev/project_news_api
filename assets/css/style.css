@@ -1,0 +1,82 @@
+/* font-family
+font-family: 'Castoro', serif;
+font-family: 'Lato', sans-serif; */
+
+@font-face {
+    font-family: 'Castoro';
+    src: url(../fonts/Castoro/Castoro-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Lato-Bold';
+    src: url(../fonts/Lato/Lato-Bold.ttf);
+}
+
+/* Global Style */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1,h2, a {
+    font-family: 'Lato-Bold', sans-serif;
+}
+
+h2{
+    margin: 0.5rem 0;
+}
+
+p{
+    font-family: 'Castoro', serif;
+}
+
+/* Header Style */
+header{
+    padding: 1rem;
+    color: #fffbcf;
+    background-color: #000103;
+}
+
+/* Main Style */
+
+main{
+    background: #000103;
+    background-image: url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+section{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+article{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    /* glassmorphism */
+    background: rgba(160,164,173,0.6);
+    backdrop-filter: blur(3px);
+    border: 1px solid rgba(160,164,173,0.3);
+    border-radius: 8px;
+}
+
+img{
+    width: 100%;
+}
+
+a{
+    text-decoration: none;
+    color: #fffbcf;
+    background: #000103;
+    padding: 0.6rem 2rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
