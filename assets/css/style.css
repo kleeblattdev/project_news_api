@@ -104,14 +104,14 @@ a, button{
     border: none;
 }
 
-button{
+#btnSearch{
     background-color: #fffbcf;
     color: #000103;
     transition: all 0.2s ease-in;
     margin: 0 2rem;
 }
 
-button:hover{
+#btnSearch:hover{
     cursor: pointer;
     transition: all 0.2s ease-in;
     color: #fffbcf;
@@ -119,4 +119,30 @@ button:hover{
     border: 1px solid #fffbcf;
     box-shadow: 0px 0px 30px #fffbcf;
     box-shadow: #fffbcf;
+}
+
+.btnCategory{
+    color: #fffbcf;
+    background-color: #000103;
+    transition: all 0.2s ease-in;
+}
+
+.btnCategory:hover{
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+    text-decoration: underline #fffbcf;
+}
+
+/* Media Querie for Tablet */
+@media only screen and (max-width: 768px){
+    section{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+/* Media Querie for Smartphone */
+@media only screen and (max-width: 465px){
+    section{
+        grid-template-columns: 1fr;
+    }
 }
