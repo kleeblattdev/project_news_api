@@ -43,6 +43,7 @@ function loadArticle(){
 
             //Image
             newsImg.src = `${urlToImage}`;
+            newsImg.alt =`Image could not be found`;
             newsArticle.appendChild(newsImg);
 
             //Titel of article
@@ -61,6 +62,7 @@ function loadArticle(){
             newsReadMore.classList.add("readMore");
             newsReadMore.innerHTML = "READ MORE";
             newsReadMore.href = `${url}`;
+            newsReadMore.target =`_blank`;
             newsArticle.appendChild(newsReadMore);
     
             newsSection.appendChild(newsArticle);
