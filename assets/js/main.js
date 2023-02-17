@@ -58,6 +58,7 @@ function loadArticle(){
             newsArticle.appendChild(newsPublished);
 
             //Button for external link
+            newsReadMore.classList.add("readMore");
             newsReadMore.innerHTML = "READ MORE";
             newsReadMore.href = `${url}`;
             newsArticle.appendChild(newsReadMore);

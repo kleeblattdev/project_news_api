@@ -19,7 +19,7 @@ font-family: 'Lato', sans-serif; */
     box-sizing: border-box;
 }
 
-h1,h2,h3, a {
+h1,h2,h3, button, a {
     font-family: 'Lato-Bold', sans-serif;
 }
 
@@ -102,6 +102,12 @@ a, button{
     border-radius: 8px;
     margin-top: 1rem;
     border: none;
+}
+
+.readMore:hover{
+    color:#000103;
+    background-color: #fffbcf;
+    transition: all 0.2s ease-in;
 }
 
 #btnSearch{
