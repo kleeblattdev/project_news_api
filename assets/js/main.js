@@ -1,42 +1,104 @@
+//Input 
+const btnSearch = document.querySelector('#btnSearch');
 let search = document.querySelector('#search');
 let country = document.querySelector('#country');
 
-console.log(search, country);
+//
+const newsSection = document.querySelector('section');
+const allArticles = newsSection.getElementsByTagName('article');
 
-fetch(`https://newsapi.org/v2/top-headlines?country=de&apiKey=2731200c9f6d4b85a5c4165c5d639e92`)
+//fetch URL
+let apiKey = '2731200c9f6d4b85a5c4165c5d639e92';
+let url = `https://newsapi.org/v2/everything?q=keyword&apiKey=${apiKey}`;
 
-.then(response => response.json())
-.then((data) => {
+//Remove function 
+const removeElements = () => {
+    while(allArticles.length > 0) {
+        allArticles[0].remove()
+    }
+}
 
-    data.articles.forEach((article) =>{ 
+//fetch news API function
+function loadArticle(){
+    let req = new Request(url);
 
-        const urlToImage = article.urlToImage;
-        const title = article.title;
-        const description = article.description;
-        const publishedAt = article.publishedAt;
-        const url = article.url;
+    fetch(req)
+    .then(response => response.json())
+    .then((data) => {
+    
+        data.articles.forEach((article) =>{ 
+            const newsArticle = document.createElement('article');
+    
+            const urlToImage = article.urlToImage;
+            const title = article.title;
+            const description = article.description;
+            const publishedAt = article.publishedAt;
+            const url = article.url;
 
-        const newsArticle = document.createElement('article');
-        const newsImg = document.createElement('img');
-        newsImg.src = `${urlToImage}`;
-        const newsHeadline = document.createElement('h2');
-        newsHeadline.innerText = title;
-        const newsDescription = document.createElement('p');
-        newsDescription.innerText = description;
-        const newsPublished = document.createElement('p');
-        newsPublished.classList.add('publishedAt');
-        newsPublished.innerText = publishedAt.slice(0,10);
-        const newsReadMore = document.createElement('a');
-        newsReadMore.innerHTML = "READ MORE";
-        newsReadMore.href = `${url}`;
+            const newsImg = document.createElement('img');
+            const newsHeadline = document.createElement('h2');
+            const newsDescription = document.createElement('p');
+            const newsPublished = document.createElement('p');
+            const newsReadMore = document.createElement('a');
 
-        newsArticle.appendChild(newsImg)
-        newsArticle.appendChild(newsHeadline)
-        newsArticle.appendChild(newsDescription)
-        newsArticle.appendChild(newsPublished)
-        newsArticle.appendChild(newsReadMore);
+            //Image
+            newsImg.src = `${urlToImage}`;
+            newsArticle.appendChild(newsImg);
 
-        document.querySelector('section').appendChild(newsArticle);
-    })
+            //Titel of article
+            newsHeadline.innerText = title;
+            newsArticle.appendChild(newsHeadline);
 
+            //News description
+            newsDescription.innerText = description;
+            newsArticle.appendChild(newsDescription);
+
+            //Published Date
+            newsPublished.innerText = publishedAt.slice(0,10);
+            newsArticle.appendChild(newsPublished);
+
+            //Button for external link
+            newsReadMore.innerHTML = "READ MORE";
+            newsReadMore.href = `${url}`;
+            newsArticle.appendChild(newsReadMore);
+    
+            newsSection.appendChild(newsArticle);
+        })
+    }
+    )}
+    
+    loadArticle();
+
+// Searchbar button
+btnSearch.addEventListener("click", (event) =>{
+    event.preventDefault();
+    url = `https://newsapi.org/v2/everything?q=${search.value}&apiKey=${apiKey}`;
+    removeElements();
+    loadArticle();
 })
+
+//Search on pressing Enter
+search.addEventListener('keyup',(event)=>{
+    if (event.keyCode === 13){
+    btnSearch.click();
+    }
+})
+
+//change country
+country.addEventListener("change", (event) =>{
+event.preventDefault();
+url =`https://newsapi.org/v2/top-headlines?country=${country.value}&apiKey=${apiKey}`;
+removeElements();
+loadArticle();
+})
+
+//Sort by category
+
+function businessPage(){
+url =`https://newsapi.org/v2/top-headlines/sources?category=businessapiKey=${apiKey}}`
+console.log(url);
+loadArticle();
+}
+
+document.querySelector('#business').businessPage();
+
