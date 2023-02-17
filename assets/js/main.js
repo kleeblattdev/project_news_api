@@ -66,8 +66,6 @@ function loadArticle(){
         })
     }
     )}
-    
-    loadArticle();
 
 // Searchbar button
 btnSearch.addEventListener("click", (event) =>{
@@ -94,11 +92,12 @@ loadArticle();
 
 //Sort by category
 
-function businessPage(){
-url =`https://newsapi.org/v2/top-headlines/sources?category=businessapiKey=${apiKey}}`
-console.log(url);
-loadArticle();
+function category (topic){
+    let categories = topic;
+    console.log(categories);
+    url =`https://newsapi.org/v2/top-headlines?country=${country.value}&category=${categories}&apiKey=${apiKey}`
+    removeElements();
+    loadArticle();
 }
 
-document.querySelector('#business').businessPage();
-
+loadArticle()

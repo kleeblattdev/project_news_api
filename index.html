@@ -18,23 +18,23 @@
                 <select name="country" id="country">
                     <option value="ae">United Arab Emirates</option>
                     <option value="ar">Argentina</option>
-                    <option value="de">Germany</option>
+                    <option value="de" selected >Germany</option>
                     <option value="us">USA</option>
                     <option value="jp">Japan</option>
-                    <option value="" selected></option>
+                    <option value=""></option>
                 </select>
             </div>
         </nav>
         <nav id="categories">
             <div>
                 <h3>Search news by Category</h3>
-                <a href="./assets/html/business.html" id="business">Business</a>
-                <a href="./assets/html/entertainment.html">Entertainment</a>
-                <a href="./assets/html/general.html">General</a>
-                <a href="./assets/html/health.html">Health</a>
-                <a href="./assets/html/science.html">Science</a>
-                <a href="./assets/html/sports.html">Sports</a>
-                <a href="./assets/html/technology.html">Technology</a>
+                <button class="btnCategory" onclick="category('business')">Business</button>
+                <button class="btnCategory" onclick="category('entertainment')">Entertainment</button>
+                <button class="btnCategory" onclick="category('general')">General</button>
+                <button class="btnCategory" onclick="category('health')">Health</button>
+                <button class="btnCategory" onclick="category('science')">Science</button>
+                <button class="btnCategory" onclick="category('health')">Health</button>
+                <button class="btnCategory" onclick="category('technology')">Technology</button>
             </div>
         </nav>
     </header>
